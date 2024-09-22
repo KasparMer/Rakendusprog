@@ -2,21 +2,20 @@ import { Box, Button, Stack, TextField, Typography } from "@mui/material";
 import { FormEvent, useState, useEffect } from "react";
 
 export default function MyForm() {
-  // const [form, setForm] = useState({ username: "", password: "" });
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [form, setForm] = useState({ username: "", password: "" });
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    // event.preventDefault();
-    // console.log(form);
+    event.preventDefault();
+
+    console.log(form);
   };
 
-  // const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-  //   setForm((prevForm) => ({
-  //     ...prevForm,
-  //     [event.target.name]: event.target.value,
-  //   }));
-  // };
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setForm((prevForm) => ({
+      ...prevForm,
+      [event.target.name]: event.target.value,
+    }));
+  };
 
   return (
     <Box
@@ -39,17 +38,13 @@ export default function MyForm() {
             name="username"
             label="Username"
             variant="outlined"
-            onChange={(event) => setUsername(event.target.value)}
-            // onChange={handleChange}
-            // value={form.username}
+            onChange={handleChange}
           />
           <TextField
             name="password"
             label="Password"
             variant="outlined"
-            onChange={(event) => setPassword(event.target.value)}
-            // onChange={handleChange}
-            // value={form.password}
+            onChange={handleChange}
           />
           <Button variant="contained" type="submit">
             Login

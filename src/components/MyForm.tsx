@@ -1,6 +1,6 @@
 import "./App.css"
 import MyContainer from "../layout/MyContainer"
-import Login from "./Login"
+import Login from "../pages/Login"
 
 function MyForm() {
   return (
